@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: Arial, sans-serif;
   position: relative;
+
 }
 
 /* Navbar */
@@ -34,17 +35,23 @@
   color: white;
 }
 
-.nav-links {
+.nav-links, .nav-linky {
   list-style: none;
   display: flex;
+
+}
+.nav-linky{
+  display: none;
+
 }
 
 .nav-links li {
   position: relative;
   margin: 0 15px;
+  
 }
 
-.nav-links a {
+.nav-links a, .nav-linky a {
   text-decoration: none;
   color: white;
   padding: 10px;
@@ -850,6 +857,9 @@ h2 {
 } */
 
 @media screen and (max-width: 768px) {
+  *{
+    overflow-x: hidden;
+  }
   .nav__hamburger {
     display: flex;
   flex-direction: column;
@@ -857,34 +867,46 @@ h2 {
   align-items: center; 
   cursor: pointer;
   }
-  .nav-links{
-    position: absolute;
-    display: flex;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.2);
-    top: -10rem;
-    width: 100%;
-    transition: all ease-in-out 0.4s;
+  .no-scroll {
+    overflow: hidden;
+    height: 100vh;
   }
+  
+  
+    .nav-links{
+      display: none;
+
+    }
+
+    .nav-linky.active {
+      display: flex;
+      flex-direction: column;
+      background-color: #005555;
+      width: 100%;
+      height: 400px;	
+      padding-top: 60px;
+      gap: 40px;
+      align-items: center!important;
+    }
   .nav {
     flex-direction: column;
     align-items: flex-start;
   }
-  .nav-links ul {
+  .nav-linky ul {
     flex-direction: column;
     width: 100%;
     padding: 3rem 0 0.6rem;
   }
-  .nav-links ul li {
+  .nav-linky ul li {
     text-align: center;
   }
-  .nav-links ul li a {
+  .nav-linky ul li a {
     padding: 0.5rem;
   }
-  .nav-links {
+  .nav-linky {
     z-index: -1;
   }
-  .nav-links.active {
+  .nav-linky.active {
     top: 0;
   }
   .nav__hamburger.active :nth-child(1) {
@@ -898,7 +920,7 @@ h2 {
   .nav__hamburger.active :nth-child(3) {
     transform: rotate(-45deg) translate(0.45rem, -0.1875rem);
   }
-  .nav-links {
+  /* .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
@@ -908,7 +930,7 @@ h2 {
     width: 200px;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
     padding: 10px;
-}
+} */
 
 .nav-links.show {
     display: flex;
